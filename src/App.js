@@ -1,16 +1,22 @@
 import "./App.css"
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 // propsでpositionを受け取る
 function Box(props){
   const ref = useRef();
+  const [clicked, setClicked] = useState(false);
   // fiber用意している関数
   useFrame(() => (ref.current.rotation.x += 0.01));
+
   return(
-    <mesh {...props} ref={ref}>
-      <boxGeometry args={[2,2,2]} />
-      <meshStandardMaterial color={"hotpink"} />
+    <mesh 
+      {...props} 
+      ref={ref}
+      onClick={() => setClicked(!clicked)} scale={clicked ? 2 : 1}
+    >
+      <boxGeometry args={[1,1,1]} />
+      <meshStandardMaterial color={"orange"} />
     </mesh>
   )
 }
