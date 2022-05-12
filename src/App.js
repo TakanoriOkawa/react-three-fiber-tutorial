@@ -23,14 +23,19 @@ function Box(props){
 
 function App() {
   return (
-    <div id="canvas-container">
-      <Canvas>
-        <Box position={[-1.6,0,0]}></Box>
-        <Box position={[1.6,0,0]}></Box>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[-10,10,10]} color={''} />
-      </Canvas>
-    </div>
+    <>
+      <div id="canvas-container">
+        <Canvas>
+          <Box position={[-1.6,0,0]}></Box>
+          <Box position={[1.6,0,0]}></Box>
+          <ambientLight intensity={0.5} />
+          <spotLight position={[10,10,10]} angle={0.15} penumbra={1} />
+          <pointLight position={[-10,10,10]} />
+        </Canvas>
+      </div>
+      <h1>Threejs Fiber</h1>
+      <a href="">もっとみる</a>
+    </>
   );
 }
 
